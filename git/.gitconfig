@@ -16,7 +16,7 @@
   changed = green
   untracked = cyan
 [core]
-  excludesfile = .gitignore.global
+  excludesfile = ~/.gitignore.global
   editor = vim
 [merge]
   tool = vimdiff
