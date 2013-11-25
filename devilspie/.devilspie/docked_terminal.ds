@@ -1,0 +1,15 @@
+; generated_rule docked_terminal
+( if 
+( begin 
+( is ( window_name ) "gnome-terminal-tomorrow" )
+) 
+( begin 
+( pin )
+( below )
+( undecorate )
+( skip_tasklist )
+( wintype "desktop" )
+( geometry "1330x670+18+42" )
+( println "match" )
+)
+)
