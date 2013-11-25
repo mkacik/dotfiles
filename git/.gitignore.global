@@ -1,3 +1,15 @@
 .idea
+*.iml
+*.iws
+
+eclipse_config
+*error.log
+.project
+.classpath
+.settings
 
 target
+test-output
+
+.svn
+.DS_Store
