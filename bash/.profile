@@ -6,21 +6,21 @@
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-      . "$HOME/.bashrc"
-    fi
+  # include .bashrc if it exists
+  if [ -f "$HOME/.bashrc" ]; then
+    . "$HOME/.bashrc"
+  fi
 
-    if [ -d "$HOME/.bashrc.d" ]; then
-			for f in $HOME/.bashrc.d/*; do
-      	. "$f"
-      done
-    fi
+  if [ -d "$HOME/.bashrc.d" ]; then
+    for f in $HOME/.bashrc.d/*; do
+      . "$f"
+    done
+  fi
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
+  PATH="$HOME/bin:$PATH"
 fi
 
 # Load RVM into a shell session *as a function*

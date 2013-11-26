@@ -1,20 +1,20 @@
 function get_ruby_gemset {
-	local gemset=$(rvm current | grep '@' | cut -d'@' -f2)
-	local ruby=$(ruby -v | cut -f2 -d' ' | cut -f1 -d'p' )
- 	if [ -z "$gemset" ]; then
-  	echo "$ruby"
- 	else
-  	echo "$gemset@$ruby"
- 	fi
+  local gemset=$(rvm current | grep '@' | cut -d'@' -f2)
+  local ruby=$(ruby -v | cut -f2 -d' ' | cut -f1 -d'p' )
+  if [ -z "$gemset" ]; then
+    echo "$ruby"
+  else
+    echo "$gemset@$ruby"
+  fi
 }
 
 function get_git_branch {
- local branch=$(git branch 2>/dev/null | grep -e '^*' | cut -f2 -d ' ')
- if [ -z "$branch" ]; then
-  echo "-"
- else
-  echo "$branch"
- fi 
+  local branch=$(git branch 2>/dev/null | grep -e '^*' | cut -f2 -d ' ')
+  if [ -z "$branch" ]; then
+    echo "-"
+  else
+    echo "$branch"
+  fi
 }
 
 # Set prompt colors
