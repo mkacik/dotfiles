@@ -20,5 +20,7 @@
   editor = vim
 [merge]
   tool = vimdiff
+[push]
+  default = simple
 [include]
   path = .gitconfig.user
