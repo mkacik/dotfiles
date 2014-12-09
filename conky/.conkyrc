@@ -64,6 +64,5 @@ show_graph_scale no
 show_graph_range no
 
 TEXT
-${cpugraph 18, 200}${offset 20}${if_existing /proc/net/route wlan0}${downspeedgraph wlan0 18, 200}${offset 20}${upspeedgraph wlan0 18, 200}${else}${downspeedgraph usb0 18, 200}${offset 20}${upspeedgraph usb0 18, 200}${endif}${offset 20}${memgauge 18,40}
-${voffset -6}CPU ${cpu}%${goto 195}${hwmon 0 temp 1}°C${goto 240}⬇ ${if_existing /proc/net/route wlan0}${downspeed wlan0}${else}${downspeed usb0}${endif}${goto 460}⬆ ${if_existing /proc/net/route wlan0}${upspeed wlan0}${else}${upspeed usb0}${endif}${goto 676}MEM ${mem}
-${goto 680} 
+${offset 30}${cpugraph 18, 200}${offset 20}${if_existing /proc/net/route wlan0}${downspeedgraph wlan0 18, 200}${offset 20}${upspeedgraph wlan0 18, 200}${else}${downspeedgraph usb0 18, 200}${offset 20}${upspeedgraph usb0 18, 200}${endif}${offset 20}${memgauge 18,40}
+${offset 30}${voffset -6}CPU ${cpu}%${goto 225}${hwmon 0 temp 1}°C${goto 270}⬇ ${if_existing /proc/net/route wlan0}${downspeed wlan0}${else}${downspeed usb0}${endif}${goto 490}⬆ ${if_existing /proc/net/route wlan0}${upspeed wlan0}${else}${upspeed usb0}${endif}${goto 706}MEM ${mem}
