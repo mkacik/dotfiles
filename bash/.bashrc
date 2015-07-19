@@ -126,7 +126,7 @@ function tm {
 alias ack="ack-grep"
 alias o="exo-open"
 
-export JAVA_HOME=$(ls -l /etc/alternatives/java | sed 's|.*-> ||' | sed 's|/jre/bin/java||')
+test -e /etc/alternatives/java && export JAVA_HOME=$(ls -l /etc/alternatives/java | sed 's|.*-> ||' | sed 's|/jre/bin/java||')
 export M2_HOME="/opt/maven"
 export M2="$M2_HOME/bin"
 export ANDROID_HOME="/opt/android-sdk-linux"
