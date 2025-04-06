@@ -24,3 +24,8 @@
   default = simple
 [include]
   path = .gitconfig.user
+[alias]
+  amend = commit --amend
+  add = add -A
+[init]
+  defaultBranch = master

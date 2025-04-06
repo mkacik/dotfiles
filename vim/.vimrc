@@ -1,7 +1,9 @@
+set paste
 set tabstop=2
 set shiftwidth=2
+set softtabstop=2
 set expandtab
-set textwidth=80
+set textwidth=100
 set colorcolumn=+1
 set cursorline
 
@@ -23,7 +25,7 @@ cnoreabbrev W w ! sudo tee %
 execute pathogen#infect()
 
 syntax on
-filetype plugin on
+"filetype plugin on
 
 autocmd BufNewFile,BufRead *.tw set filetype=python
 autocmd BufNewFile,BufRead *.cinc set filetype=python
@@ -31,6 +33,5 @@ autocmd BufNewFile,BufRead *.cconf set filetype=python
 autocmd BufNewFile,BufRead *.thrift set filetype=python
 autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.java :%s/\s\+$//e
-autocmd VimEnter * NERDTree
+autocmd BufWritePost *.php ! hh_client
 autocmd VimEnter * wincmd p
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif

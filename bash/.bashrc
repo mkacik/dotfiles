@@ -55,7 +55,6 @@ if [ -n "$force_color_prompt" ]; then
 	color_prompt=
     fi
 fi
-
 if [ "$color_prompt" = yes ]; then
      PS1="\[\e]0;\H \w\007\][\D{%R %Z}] \[\e[01;32m\]\u@\h\[\e[0m\] \[\e[01;34m\]\w:\[\e[00m\] "
 else
@@ -123,14 +122,19 @@ function tm {
   fi;
 } 
 
-alias ack="ack-grep"
 alias o="exo-open"
+alias vim="$(which vim) -O"
 
-test -e /etc/alternatives/java && export JAVA_HOME=$(ls -l /etc/alternatives/java | sed 's|.*-> ||' | sed 's|/jre/bin/java||')
-export M2_HOME="/opt/maven"
-export M2="$M2_HOME/bin"
-export ANDROID_HOME="/opt/android-sdk-linux"
+# dedup path entries
+PATH=$HOME/bin:$HOME/.local/bin:$PATH:/snap/bin:$HOME/.dotnet
+PATH=$(echo $PATH | awk 'BEGIN {RS=":"; ORS=":"} !($0 ~ "\n") && !seen[$0]++')
+PATH="${PATH:0:-1}"
 
-#PATH=$PATH:$HOME/.rvm/bin # rather use it as a function
-PATH=$PATH:$M2
-PATH=$HOME/bin:$PATH
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias cdtemp="cd $(mktemp -d)"
+. "$HOME/.cargo/env"
+
+export DOTNET_ROOT=$HOME/.dotnet
